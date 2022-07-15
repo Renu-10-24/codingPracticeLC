@@ -1,0 +1,23 @@
+class Solution {
+    public int[] findEvenNumbers(int[] digits) {
+        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+         Map<Integer,Integer> numMap = null;
+        for(int i=0;i<digits.length;i++){
+            int val = map.getOrDefault(digits[i],0);
+            map.put(digits[i],++val);
+        }
+        for(int num=200;num<=998;num++){
+            if(num%2==0){
+                while(num>0){
+                    numMap = new HashMap<Integer,Integer>(map);
+                    numMap =
+                    int digit = num%10;
+                    int val= map.getOrDefault(digit,0);
+                    if(val>0){
+                        val--;
+                    }
+                }
+            }
+        }
+    }
+}
