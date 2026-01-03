@@ -1,4 +1,4 @@
-package java8;
+//package java8;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -88,7 +88,7 @@ public class CreatingComparator {
         }
 
 
-        Function<String,Integer> function = s -> s.length(); //this one does boxing and unboxing under the hood
+        Function<String,Integer> function = s -> (Integer) s.length(); //this one does boxing and unboxing under the hood
 
         Comparator<String> comparator = Comparator.comparing(function);
         System.out.println("sorting by length using the comparing method with a function that returns length.. ");
