@@ -1,4 +1,4 @@
-package leetcode.contest;
+//package leetcode.contest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,7 +67,7 @@ class Sol4 {
 		}
 		return out;
 	}
-	
+
 	public int[] sortJumbledContest(int[] mapping, int[] nums) {
 		HashMap<Integer, Integer> map = new HashMap<>();
 		for (int num : nums) {
@@ -84,39 +84,39 @@ class Sol4 {
 		return Arrays.stream(nums).boxed().sorted((o, p) -> map.get(o)- map.get(p))
 				.mapToInt(v -> v).toArray();
 	}
-	
+
 	public int[] sortJumbledPractice(int[] mapping, int[] nums) {
 		HashMap<Integer, Integer> map = new HashMap<>();
 		for (int num : nums) {
 			Stream<String> streamStr = ("" + num).chars().mapToObj(q -> "" + mapping[q - '0']);
 			Stream<Object> streamObj = ("" + num).chars().mapToObj(q -> "" + mapping[q - '0']);
 			String[] numCharsArr = ("" + num).chars().mapToObj(q -> "" + mapping[q - '0']).toArray(String[]::new);
-			
+
 //			equivalent syntax for this above line
 			String[] numCharsArr1 = ("" + num).chars().mapToObj(q -> "" + mapping[q - '0']).toArray(x->new String[x]);
-			
+
 			map.put(num, Integer.parseInt(
 						String.join("", numCharsArr)));
 		}
 		return Arrays.stream(nums).boxed().sorted((o, p) -> map.get(o)- map.get(p))
 				.mapToInt(v -> v).toArray();
 	}
-	
+
 	public void practiceMethods(int[] mapping, int[] nums) {
-		//to convert primitive int array to stream of Integer and then sort them using the 
-//		 compare method of the argument 
+		//to convert primitive int array to stream of Integer and then sort them using the
+//		 compare method of the argument
 //		 which is Comparator - a functional interface
 //		Arrays.stream(int[] arr) - returns an IntStream - stream of ints
 //		Arrays.stream(nums).sorted() - for natural order sorting
-//		for stream to primitive int 
+//		for stream to primitive int
 //		Arrays.stream(nums).toArray();
 		//for custom comparator- we need to use the boxed stream
 //		stream.mapToInt - to convert from Stream of Integers to IntStream
 		Arrays.stream(nums).boxed().sorted((o1,o2)->o1.compareTo(o2)).mapToInt(o->o).toArray();
 //		IntStream to int[]  vs Stream of Integers to Integer[]
-		
+
 	}
-	
+
 	public void practiceMethod2() {
 		List<Integer> intList = new ArrayList<Integer>();
 		intList.add(1);
@@ -132,9 +132,10 @@ class Sol4 {
 		                              });
 
 		System.out.println("array length         : " + array.length);
-		System.out.println("array elements here  : " + Stream.of(array).forEach(System.out.println(x))));
-		
-		
+		System.out.println("array elements here  : ");
+		Stream.of(array).forEach(System.out::println);
+
+
 	    int[] array2 = intList.stream()
 	                             .filter(x -> x > 2)
 	                             .mapToInt(x->x)
@@ -142,42 +143,42 @@ class Sol4 {
 	    for(int i : array2) {
 	    	System.out.println(array2);
 	    }
-		
+
 	}
 }
 //approach 2
 class Sol45 {
-    public int[] sortJumbled(int[] mapping, int[] nums) {
-		List<Pair> pairs = new ArrayList<Pair>();
-		for (int num : nums) {
-            int x = num;
-            int y = 0, multpr = 1;
-            if(x == 0){
-                y=mapping[x];
-            }
-            while(x>0){
-                y= y+ multpr*(x%10);
-                multpr *= 10;
-                x /= 10;
-            }
-            Pair p = new Pair(num,y);
-			pairs.add(p);
-        }
-        for (Pair p : pairs) {
-            System.out.println(p.x);
-		}
-		Collections.sort(pairs, new Comparator<Pair>() {
-			@Override
-			public int compare(Pair p1, Pair p2) {
-				return p1.y-p2.y;
-			}
-		});
-		int out[] = new int[pairs.size()];
-		int x1=0;
-		for (Pair p : pairs) {
-            System.out.println(p.x);
-			out[x1++] = p.x;
-		}
-		return out;
-	}
+//    public int[] sortJumbled(int[] mapping, int[] nums) {
+//		List<leetcode.contest.Pair> pairs = new ArrayList<leetcode.contest.Pair>();
+//		for (int num : nums) {
+//            int x = num;
+//            int y = 0, multpr = 1;
+//            if(x == 0){
+//                y=mapping[x];
+//            }
+//            while(x>0){
+//                y= y+ multpr*(x%10);
+//                multpr *= 10;
+//                x /= 10;
+//            }
+//            Pair p = new Pair(num,y);
+//			pairs.add(p);
+//        }
+//        for (Pair p : pairs) {
+//            System.out.println(p.x);
+//		}
+//		Collections.sort(pairs, new Comparator<Pair>() {
+//			@Override
+//			public int compare(Pair p1, Pair p2) {
+//				return p1.y-p2.y;
+//			}
+//		});
+//		int out[] = new int[pairs.size()];
+//		int x1=0;
+//		for (leetcode.contest.Pair p : pairs) {
+//            System.out.println(p.x);
+//			out[x1++] = p.x;
+//		}
+//		return out;
+//	}
 }
