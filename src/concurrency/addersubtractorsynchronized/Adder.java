@@ -8,7 +8,7 @@ public class Adder implements Runnable{
     @Override
     public void run() {
         for(int i=1;i<=1000000;i++){
-            synchronized (count) {
+            synchronized (Count.class) {
                 //synchronized(another object ){ can be used on multiple objects as needed.
                 count.value += i;
 //            }
