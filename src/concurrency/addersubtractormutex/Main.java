@@ -1,11 +1,14 @@
 package concurrency.addersubtractormutex;
 
-public class Main {
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+public class Main {
     static void main() throws InterruptedException {
         Count count = new Count();
-        Adder adder = new Adder(count);
-        Subtractor subtractor = new Subtractor(count);
+        Lock lock = new ReentrantLock();
+        Adder adder = new Adder(count,lock);
+        Subtractor subtractor = new Subtractor(count,lock);
         Thread t1 = new Thread(adder);
         Thread t2 = new Thread(subtractor);
         t1.start();

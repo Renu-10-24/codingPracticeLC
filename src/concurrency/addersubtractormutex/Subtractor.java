@@ -1,20 +1,21 @@
 package concurrency.addersubtractormutex;
 
+import java.util.concurrent.locks.Lock;
+
 public class Subtractor implements Runnable{
     private final Count count;
-    Subtractor(Count count){
+    private final Lock lock;
+    Subtractor(Count count, Lock lock){
         this.count = count;
+        this.lock = lock;
     }
     @Override
     public void run() {
-//        try {
-//            Thread.sleep(10000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
         for(int i=1;i<=1000000;i++){
+            lock.lock();
             count.value -=i;
-            System.out.println("In subtractor : "+count.value);
+            lock.unlock();
+//            System.out.println("In subtractor : "+count.value);
         }
 
     }
