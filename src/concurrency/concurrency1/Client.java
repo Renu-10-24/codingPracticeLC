@@ -1,4 +1,4 @@
-package concurrency1;
+package concurrency.concurrency1;
 
 public class Client {
 //    static void main() {

@@ -1,6 +1,6 @@
-package executorservice;
+package concurrency.executorservice;
 
-import concurrency1.NumberPrinter;
+import concurrency.concurrency1.NumberPrinter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

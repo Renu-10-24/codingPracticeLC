@@ -1,4 +1,4 @@
-package concurrency1;
+package concurrency.concurrency1;
 
 import java.io.File;
 import java.io.IOException;
