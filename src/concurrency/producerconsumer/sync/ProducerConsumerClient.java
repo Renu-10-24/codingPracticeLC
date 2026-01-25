@@ -8,6 +8,7 @@ public class ProducerConsumerClient {
     static void main() {
         Queue<Object> store = new ArrayDeque<>();
         int maxSize= 6;
+        //not using semaphore yet though, trying out the synchronized and lock mechanisms first to address Producer Consumer problem
         Semaphore prodSemaphore = new Semaphore(maxSize);
         Semaphore conSemaphore = new Semaphore(maxSize);
 
