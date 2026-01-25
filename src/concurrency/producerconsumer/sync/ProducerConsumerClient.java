@@ -6,7 +6,7 @@ import java.util.concurrent.Semaphore;
 
 public class ProducerConsumerClient {
     static void main() {
-        Queue<Object> store = new ArrayDeque<Object>();
+        Queue<Object> store = new ArrayDeque<>();
         int maxSize= 6;
         Semaphore prodSemaphore = new Semaphore(maxSize);
         Semaphore conSemaphore = new Semaphore(maxSize);
@@ -52,8 +52,6 @@ public class ProducerConsumerClient {
         t10.start();
         t11.start();
         t12.start();
-
-
 
     }
 }
