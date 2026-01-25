@@ -1,11 +1,10 @@
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.groupingBy;
 
 public class CoforgeSampleCoding {
     public static void main(String[] args) {
@@ -14,6 +13,9 @@ public class CoforgeSampleCoding {
         String s2= "Software";
         //swap without third variable and loops
         c.swapWithoutThirdVariableOrLoops(s1,s2);
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        int answer=list.stream().map(n->2*n).reduce(1,(d,e)->(d+e));
+        System.out.println("answer of reduce operation : "+answer);
         //freq of chars using java8
         String s = "Javaa";
         c.getFreqChars(s);
@@ -22,8 +24,13 @@ public class CoforgeSampleCoding {
         c.printAsGiven(A,n);
     }
 
+    private void getFreqChars1(String s) {
+        Map<Character,Long> hashMap=s.chars().mapToObj(i->(char)i).collect(groupingBy(Function.identity(),Collectors.counting()));
+
+    }
+
     private void getFreqChars(String s) {
-        Map<Character,Long> characterCountMap = s.chars().mapToObj(i->(char)(i)).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+        Map<Character,Long> characterCountMap = s.chars().mapToObj(i->(char)(i)).collect(groupingBy(Function.identity(),Collectors.counting()));
         System.out.println(characterCountMap);
     }
 
