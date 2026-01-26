@@ -64,7 +64,7 @@ public class MergeSorterMultithreaded implements Callable<List<Integer>> {
             finalSortedList.add(leftsortedList.get(i));
             i++;
         }
-        while (j < leftsortedList.size()) {
+        while (j < rightsortedList.size()) {
             finalSortedList.add(rightsortedList.get(j));
             j++;
         }

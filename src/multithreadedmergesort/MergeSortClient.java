@@ -7,10 +7,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class MergeSort {
+public class MergeSortClient {
     static void main() {
         List<Integer> listToBeSorted = Arrays.asList(1,23,43,5,15,63,1,-34,-4,6,-6,24,32,3,4,6,2,73);
-        listToBeSorted = Arrays.asList(10,2);
+//        listToBeSorted = Arrays.asList(10,2);
         //calling the single threaded version of mergesort
 
         MergeSorter mergeSorter = new MergeSorter(listToBeSorted);
