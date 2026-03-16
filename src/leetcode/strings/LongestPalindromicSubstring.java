@@ -32,8 +32,8 @@ class Soly {
         int currEvenPalinLen=0;
         StringBuilder sb = new StringBuilder(A);
 
-        String output=sb.substring(0,1);
-        String output1=new String();
+        String outputOdd=sb.substring(0,1);
+        String outputEven=new String();
 
         if(A.length()==1){
             return A;
@@ -52,7 +52,7 @@ class Soly {
                 if (c1 == c2) {
                     currOddPalinLen += 2;
                     if (currOddPalinLen > maxPalinLen) {
-                        output = sb.substring(x1, x2 + 1);
+                        outputOdd = sb.substring(x1, x2 + 1);
                         maxPalinLen = currOddPalinLen;
                     }
                     if(maxPalinLen==A.length()){
@@ -74,7 +74,7 @@ class Soly {
                     currEvenPalinLen += 2;
                     if (currEvenPalinLen > maxPalinLen) {
                         maxPalinLen = currEvenPalinLen;
-                        output1 = sb.substring(x1, x2 + 1);
+                        outputEven = sb.substring(x1, x2 + 1);
                     }
                     if(maxPalinLen==A.length()){
                         return A;
@@ -88,11 +88,11 @@ class Soly {
             }
         }
 
-        if(output1.length()>output.length()){
-          return output1;
-        }else{
-            return output;
+        if(outputEven.length()>outputOdd.length()){
+          return outputEven;
         }
+            return outputOdd;
+
 //        return A.substring(0,1);
     }
 }
