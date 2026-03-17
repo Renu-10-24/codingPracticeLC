@@ -1,8 +1,8 @@
 package OOPs.interfaces;
 
 public interface Interface1 {
-    default void print(){
-        System.out.println("in Interface1 print");
+    default String print(){
+        return "in Interface1 print";
     }
 
     static void staticMethod() {
