@@ -16,6 +16,7 @@ public class ImplementingClass implements Interface1 {
 
     @Override
     public int defaultMethod(int x, int y) {
+//        return x+y-10; either can provide its own implementation or use implementation from interface.
         return Interface1.super.defaultMethod(x, y);
     }
 
@@ -30,5 +31,6 @@ public class ImplementingClass implements Interface1 {
     static void main() {
         Interface1 intrf1 = new ImplementingClass();
         intrf1.anotherMethod(2,1);
+        System.out.println(Interface1.myUtilMethod(3,5));
     }
 }

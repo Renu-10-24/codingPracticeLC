@@ -27,6 +27,7 @@ public int solve(String A,String B){
                 return 0;
             }
         }
+        m.forEach((k,v)->System.out.println("key : "+k+" value : "+v));
         return 1;
     }
 }
