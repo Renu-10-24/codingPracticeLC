@@ -1,6 +1,11 @@
 package scaler.strings;
 
-import org.w3c.dom.ls.LSOutput;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ToLowerCase {
     public static void main(String args[]) {
@@ -15,6 +20,20 @@ public class ToLowerCase {
         for(char c : charArray){
             System.out.print(c);
         }
+        Comparator<Map.Entry<Character,Long>> c = (e1,e2)->e1.getValue().compareTo(e2.getValue());
+        //streams
+        String str = "javaprogram";
+        Map<Character,Long> map = str.chars().mapToObj(i->(char)i).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+        map.forEach((k,v)-> System.out.println("char : "+k+" count : "+v));
+        //sorting the map of (Character, Count) in decreasing order of counts
+        Stream<Map.Entry<Character,Long>> stream = map.entrySet().stream().sorted(c.reversed());
+        Map<Character,Long> linkedHashMap = stream.collect(
+                Collectors.toMap(e->e.getKey(),
+                        e->e.getValue(),
+                        (oldVal, newVal)-> oldVal, LinkedHashMap::new
+                )
+        );
+        linkedHashMap.forEach((k,v)-> System.out.println("key : "+k+" val : "+v));
     }
 }
 class Sol {
